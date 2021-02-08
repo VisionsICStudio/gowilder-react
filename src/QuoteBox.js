@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 
 class QuoteBox extends Component {
 
   constructor() {
-    super();
-    this.quoteURL= 'https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand';
+    super()
+    this.quoteURL= `${process.env.REACT_APP_URL}`
     this.state = {
       quote: {
         content: '',
@@ -18,10 +18,10 @@ class QuoteBox extends Component {
   setName = pass => {
     
     if(pass === '') {
-      pass = 'Guest';
-      return pass;
+      pass = 'Guest'
+      return pass
     }
-    return pass;
+    return pass
   }
 
   changeName = event => {
@@ -31,7 +31,7 @@ class QuoteBox extends Component {
     super easy to update the state
     */
 
-    this.setState({ name: event.target.value });
+    this.setState({ name: event.target.value })
   }
 
   getQuote = e => {
@@ -57,21 +57,21 @@ class QuoteBox extends Component {
   }
 
   displayQuote = () => {
-    const { content, title } = this.state.quote;
+    const { content, title } = this.state.quote
     return (
       <div>
-        <p> {content} </p>
-        <h3> {title} </h3>
+        <p> { content } </p>
+        <h3> { title } </h3>
       </div>
     )
   }
 
   render() {
-    const  { isQuote, name, quote } = this.state;
-    let qStr = JSON.stringify(quote.content);
-    let titleStr = JSON.stringify(quote.title);
-    let trimStr = qStr.substr(16).slice(0, -26);
-    let cutStr = titleStr.substr(13).slice(0, -2);
+    const  { isQuote, name, quote } = this.state
+    let qStr = JSON.stringify(quote.content)
+    let titleStr = JSON.stringify(quote.title)
+    let trimStr = qStr.substr(16).slice(0, -26)
+    let cutStr = titleStr.substr(13).slice(0, -2)
     
     return (
       <Fragment>
@@ -88,4 +88,4 @@ class QuoteBox extends Component {
   }
 }
 
-export default QuoteBox;
+export default QuoteBox
