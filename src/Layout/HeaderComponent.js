@@ -1,9 +1,9 @@
 /*
 ; =======================================================
-; Title: HeaderComponent.js - familysocialapp - layout folder 
+; Title: HeaderComponent.js - GoWilderApp0 - layout folder 
 ; Authors: Aaron Wilson
 ; Instructor: Sean Bernath
-; Date: 08 November 2020
+; Date: 08 February 2021
 ; Description: Build out app's Header component.
 ; Legend: [ Aaron Wilson ] -> Team member responsible
 ; for page.

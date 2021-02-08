@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderComponent from './Layout/HeaderComponent'
 import QuoteBox from './QuoteBox'
-import './App.css';
+import './App.css'
 
 
 const App = () => {
@@ -13,4 +13,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App
