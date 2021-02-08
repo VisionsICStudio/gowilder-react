@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderComponent from './Layout/HeaderComponent'
-import QuoteBox from './QuoteBox'
+import QuoteBox from './components/QuoteBox'
 import './App.css'
 
 
