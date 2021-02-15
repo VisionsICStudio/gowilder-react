@@ -1,14 +1,17 @@
 import React from 'react'
-import HeaderComponent from './Layout/HeaderComponent'
-import QuoteBox from './components/QuoteBox'
-import './App.css'
+import HeaderArea from './Components/Layout/HeaderArea'
+import PageArea from './Components/Layout/PagesArea'
+import FooterArea from './Components/Layout/FooterArea'
 
+import { Background } from './Styles/Globals/Global.Styles'
+import './SASS/AppStyles.scss'
 
 const App = () => {
   return (
-    <div className="App">
-      <HeaderComponent />
-      <QuoteBox />
+    <div style={ Background }>
+      <HeaderArea />
+      <PageArea />
+      <FooterArea />
     </div>
   )
 }

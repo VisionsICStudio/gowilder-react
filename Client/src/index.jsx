@@ -12,14 +12,17 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
+import 'bulma/css/bulma.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+import { Background } from './Styles/Globals/Global.Styles'
+import './SASS/AppStyles.scss'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App style={ Background } />
   </React.StrictMode>,
   document.getElementById('root')
 )
