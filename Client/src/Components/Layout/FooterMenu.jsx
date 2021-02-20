@@ -11,24 +11,22 @@
 */
 
 import React from 'react'
-import { Navbar, Nav, NavItem, NavLink } from 'reactstrap'
-import { footerStyle } from '../../Styles/Layout/FooterAea.Styles'
-import { navLinkStyle } from '../../Styles/Layout/FooterMenu.Styles'
+import { Navbar, Nav } from 'react-bootstrap'
+import { navbarStyle, copyrightStyle, navLinkStyle } from '../../Styles/Layout/FooterMenu.Styles'
 
 const FooterMenu = () => {
 
   return (
     <>
-      <Navbar style={ footerStyle } dark expand="xl">
-          <Nav navbar>
-            <NavItem>
-              <NavLink style={ navLinkStyle } href="">Contact</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink style={ navLinkStyle } href="">Sitemap</NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
+      <Navbar expand="xl" fixed="bottom" style={ navbarStyle }>
+        <Navbar.Brand style={ copyrightStyle } href="#">
+          <small> &copy; Copyright 2021, GoWilder Full Sail Project </small>
+        </Navbar.Brand>
+        <Nav className="ml-auto">
+          <Nav.Link style={ navLinkStyle } href="#">Contact</Nav.Link>
+          <Nav.Link style={ navLinkStyle } href="#">Sitemap</Nav.Link>
+        </Nav>
+      </Navbar>
     </>
   )  
 }

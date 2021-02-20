@@ -1,0 +1,40 @@
+.modal-90w {
+  position: relative;
+  top: 10vh;
+  width: 75vw;    /* Occupy the 90% of the screen width */
+  min-width: 75vw;
+  font-family: 'Raleway';
+  font-weight: 500;
+  background-color: #000000;
+}
+
+.card, .card-body {
+  background-color: #000000;
+  border: none;
+}
+
+.modal-text {
+  color: #ffffff;
+  font-family: 'Raleway';
+  font-size: 1.2em;
+}
+
+ul {
+  position: relative;
+  left: 20px;
+}
+
+ul > li {
+  list-style-type: square;
+  color: #ffc30b;
+}
+
+img {
+  width: 400px;
+  height: 350px;
+}
+
+.price {
+  font-size: 1em;
+  color: #ffc30b;
+}

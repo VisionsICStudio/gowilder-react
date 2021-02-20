@@ -12,24 +12,20 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import FooterMenu from './FooterMenu'
-import { footerStyle } from '../../Styles/Layout/FooterAea.Styles'
 
 const FooterArea = () => {
 
     return (
       <>
-        <footer style={ footerStyle }>
-          <Container fluid>
-            <Row>
-              <Col>
-                <small> &copy; Copyright 2021, Full Sail Project </small>
-              </Col>
-              <Col>
+        <Container fluid={ true }>
+          <Row>
+            <Col>
+              <footer>
                 <FooterMenu />
-              </Col>
-            </Row> 
-          </Container>
-        </footer>
+              </footer>
+            </Col>
+          </Row>
+        </Container>
       </>
     )
   }

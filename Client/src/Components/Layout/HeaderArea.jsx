@@ -11,19 +11,18 @@
 */
 
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import TopMenu from './HeaderMenu'
+import { Container, Row, Col } from 'reactstrap'
+import HeaderMenu from './HeaderMenu'
 
 const HeaderArea = () => {
 
     return (
       <>
-        <Container fluid >
+        <Container fluid={ true }>
           <Row>
             <Col>
               <header>
-                <TopMenu />
-                Test API Call
+                <HeaderMenu />
               </header>
             </Col>
           </Row>

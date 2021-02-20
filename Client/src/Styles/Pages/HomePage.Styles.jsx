@@ -1,4 +1,4 @@
 
 
-// Home.jsx styles.
+// HomePage.jsx styles.
 
