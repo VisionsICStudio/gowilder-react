@@ -16,7 +16,7 @@ import Figure from 'react-bootstrap/Figure'
 import { aboutHeaderStyle, aboutHeaderTitleStyle, aboutRuleStyle, aboutImgStyle, aboutCaptionStyle, aboutTextStyle } from '../../Styles/Pages/AboutPage.Styles'
 import Image from './Webp/tree-about.webp'
 
-const HomePage = () => {
+export const AboutPage = () => {
 
   return (
     <>
@@ -59,4 +59,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default AboutPage

@@ -14,7 +14,7 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { navbarStyle, copyrightStyle, navLinkStyle } from '../../Styles/Layout/FooterMenu.Styles'
 
-const FooterMenu = () => {
+export const FooterMenu = () => {
 
   return (
     <>

@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
-
-class QuoteBox extends Component {
+export class QuoteBox extends Component {
 
   constructor() {
     super()

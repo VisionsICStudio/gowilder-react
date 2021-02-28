@@ -15,7 +15,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Logo } from '../../Styles/Layout/HeaderArea.Styles'
 import { navLinkStyle } from '../../Styles/Layout/HeaderMenu.Styles'
 
-const HeaderMenu = () => {
+export const HeaderMenu = () => {
   return (
     <>
       <Navbar bg="light" expand="xl" fixed="top">
@@ -30,7 +30,7 @@ const HeaderMenu = () => {
               <NavDropdown.Item href="/locations"><strong>Top Locations</strong></NavDropdown.Item>
             </NavDropdown>
             <Nav.Link style={ navLinkStyle } href="/packages"><strong>Packages</strong></Nav.Link>
-            <Nav.Link style={ navLinkStyle } href="/register"><strong>Register</strong></Nav.Link>
+            <Nav.Link style={ navLinkStyle } href="/parks"><strong>Find Parks</strong></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

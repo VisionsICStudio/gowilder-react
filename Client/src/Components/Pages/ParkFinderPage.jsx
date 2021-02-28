@@ -11,20 +11,19 @@
 */
 
 import React from 'react'
-import QuoteBox from '../UI/QuoteBox'
-import { Jumbotron } from 'reactstrap'
+import { Form } from 'react-bootstrap'
 
-export const HomePage = () => {
+export const ParkFinderPage = () => {
 
   return (
     <>
-      
-      <Jumbotron>
-        <QuoteBox />
-      </Jumbotron>
-
+      <Form.Group>
+        <Form.Control as="select" size="lg">
+          <option>Large select</option>
+        </Form.Control>
+      </Form.Group>
     </>
   )
 }
 
-export default HomePage
+export default ParkFinderPage

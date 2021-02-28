@@ -14,21 +14,21 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import HeaderMenu from './HeaderMenu'
 
-const HeaderArea = () => {
+export const HeaderArea = () => {
 
-    return (
-      <>
-        <Container fluid={ true }>
-          <Row>
-            <Col>
-              <header>
-                <HeaderMenu />
-              </header>
-            </Col>
-          </Row>
-        </Container>
-      </>
-    )
-  }
+  return (
+    <>
+      <Container fluid={ true }>
+        <Row>
+          <Col>
+            <header>
+              <HeaderMenu />
+            </header>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  )
+}
 
 export default HeaderArea

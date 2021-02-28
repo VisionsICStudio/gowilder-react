@@ -13,7 +13,7 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import FooterMenu from './FooterMenu'
 
-const FooterArea = () => {
+export const FooterArea = () => {
 
     return (
       <>
@@ -30,4 +30,5 @@ const FooterArea = () => {
     )
   }
 
-export default FooterArea
+  export default FooterArea
+  

@@ -19,18 +19,26 @@ import HomePage from '../Pages/HomePage'
 import LocationsPage from '../Pages/LocationsPage'
 import PackagesPage from '../Pages/PackagesPage'
 import RegisterPage from '../Pages/RegisterPage'
+import FindParksPage from '../Pages/FindParksPage'
 import SiteMapPage from '../Pages/SiteMapPage'
+import NPAPI from '../API/NPAPI'
 
-const PagesArea = () => {
+export const PagesArea = () => {
 
   return (
     <BrowserRouter>
         <Switch>
+          <Route path="/np-api">
+            <NPAPI />
+          </Route>
           <Route path="/contact">
             <ContactPage />
           </Route>
           <Route path="/register">
             <RegisterPage />
+          </Route>
+          <Route path="/parks">
+            <FindParksPage />
           </Route>
           <Route path="/about">
             <AboutPage />

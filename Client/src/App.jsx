@@ -6,7 +6,7 @@ import FooterArea from './Components/Layout/FooterArea'
 import { Background } from './Styles/Globals/Global.Styles'
 import './SASS/AppStyles.scss'
 
-const App = () => {
+export const App = () => {
   return (
     <div style={ Background }>
       <HeaderArea />

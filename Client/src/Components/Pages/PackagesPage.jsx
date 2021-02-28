@@ -30,7 +30,7 @@ import { packagesHeaderStyle, packagesHeaderTitleStyle, packagesRuleStyle,
 
 import '../../CSS/packagesModalSize.css'
 
-const PackagesPage = () => {
+export const PackagesPage = () => {
 
   const [ premiumShow, setPremiumShow ] = useState(false);
   const [ advancedShow, setAdvancedShow ] = useState(false);

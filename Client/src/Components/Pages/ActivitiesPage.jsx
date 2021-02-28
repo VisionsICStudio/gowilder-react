@@ -33,7 +33,7 @@ import Fishing from '../../SVG/icons/activities-fishing.svg'
 import Rafting from '../../SVG/icons/activities-rafting.svg'
 import Hunting from '../../SVG/icons/activities-hunting.svg'
 
-const HomePage = () => {
+export const ActivitiesPage = () => {
 
   return (
     <>
@@ -139,4 +139,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default ActivitiesPage
