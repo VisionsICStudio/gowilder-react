@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+
 /*
 ; =======================================================
 ; Title: PagesArea.jsx - GoWilderApp - Root folder 
@@ -10,7 +12,7 @@
 ; =======================================================
 */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, Fade, useLocation } from 'react-router-dom'
 import AboutPage from '../Pages/AboutPage'
 import ActivitiesPage from '../Pages/ActivitiesPage'
@@ -21,96 +23,99 @@ import PackagesPage from '../Pages/PackagesPage'
 import RegisterPage from '../Pages/RegisterPage'
 import FindParksPage from '../Pages/ParksAPIPage'
 import SiteMapPage from '../Pages/SiteMapPage'
-import ParksAPIPage from '../Pages/ParksAPIPage'
 import NPAPI from '../API/NPAPI'
+import ParksPerState from '../UI/ParksPerState'
+import ParkPerPopularity from '../UI/ParkPerPop'
 
-export const PagesArea = (props) => {
+export const PagesArea = () => {
 
-  const [ stateObj, setStateObj ]  = useState({ stateUrl: '', stateValue: '' })
-  const [ popularityObj, setPopularityObj ]  = useState({ popularityUrl: '', popularityValue: '' })
+  let [ stateObj, setStateObj ] = useState({ stateUrl: '', stateLabel: '', stateValue: '' })
+  let [ popularityObj, setPopularityObj ] = useState({ popularityUrl: '', popularityLabel: '', popularityValue: '' })
     
   const STATES = [
 
-    { url: '/parks/alabama', value: 'al' },
-    { url: '/parks/alaska', value: 'ak' },
-    { url: '/parks/arizona', value: 'az' },
-    { url: '/parks/arkansas', value: 'ar' },
-    { url: '/parks/california', value: 'ca' },
-    { url: '/parks/colorado', value: 'co' },
-    { url: '/parks/connecticut', value: 'ct' },
-    { url: '/parks/delaware', value: 'de' },
-    { url: '/parks/florida', value: 'fl' },
-    { url: '/parks/georgia', value: 'ga' },
-    { url: '/parks/hawaii', value: 'hi' },
-    { url: '/parks/idaho', value: 'id' },
-    { url: '/parks/illinois', value: 'il' },
-    { url: '/parks/indiana', value: 'in' },
-    { url: '/parks/iowa', value: 'ia' },
-    { url: '/parks/kansas', value: 'ks' },
-    { url: '/parks/kentucky', value: 'ky' },
-    { url: '/parks/kouisiana', value: 'la' },
-    { url: '/parks/maine', value: 'me' },
-    { url: '/parks/maryland', value: 'md' },
-    { url: '/parks/massachusetts', value: 'ma' },
-    { url: '/parks/michigan', value: 'mi' },
-    { url: '/parks/minnesota', value: 'mn' },
-    { url: '/parks/mississippi', value: 'ms' },
-    { url: '/parks/missouri', value: 'mo' },
-    { url: '/parks/montana', value: 'mt' },
-    { url: '/parks/nebraska', value: 'ne' },
-    { url: '/parks/nevada', value: 'nv' },
-    { url: '/parks/new-hampshire', value: 'nh' },
-    { url: '/parks/new-jersey', value: 'nj' },
-    { url: '/parks/new-mexico', value: 'nm' },
-    { url: '/parks/new-york', value: 'ny'},
-    { url: '/parks/north-carolina', value: 'nc' },
-    { url: '/parks/north-dakota', value: 'nd' },
-    { url: '/parks/ohio', value: 'oh' },
-    { url: '/parks/oklahoma', value: 'ok' },
-    { url: '/parks/oregon', value: 'or' },
-    { url: '/parks/pennsylvania', value: 'pa' },
-    { url: '/parks/rhode-island', value: 'ri' },
-    { url: '/parks/south-carolina', value: 'sc' },
-    { url: '/parks/south-dakota', value: 'sd' },
-    { url: '/parks/tennessee', value: 'tn' },
-    { url: '/parks/texas', value: 'tx' },
-    { url: '/parks/utah', value: 'ut' },
-    { url: '/parks/vermont', value: 'vt' },
-    { url: '/parks/virginia', value: 'va' },
-    { url: '/parks/washington', value: 'wa' },
-    { url: '/parks/west-virginia', value: 'wv' },
-    { url: '/parks/wisconsin', value: 'wi' },
-    { url: '/parks/wyoming', value: 'wy' }
+    { url: '/parks/alabama', label: 'Alabama', value: 'al' },
+    { url: '/parks/alaska', label: 'Alaska', value: 'ak' },
+    { url: '/parks/arizona', label: 'Arizona', value: 'az' },
+    { url: '/parks/arkansas', label: 'Arkansas', value: 'ar' },
+    { url: '/parks/california', label: 'California', value: 'ca' },
+    { url: '/parks/colorado', label: 'Colorado', value: 'co' },
+    { url: '/parks/connecticut', label: 'Connecticut', value: 'ct' },
+    { url: '/parks/delaware', label: 'Delaware', value: 'de' },
+    { url: '/parks/florida', label: 'Florida', value: 'fl' },
+    { url: '/parks/georgia', label: 'Georgia', value: 'ga' },
+    { url: '/parks/hawaii', label: 'Hawaii', value: 'hi' },
+    { url: '/parks/idaho', label: 'Idaho', value: 'id' },
+    { url: '/parks/illinois', label: 'Illinios', value: 'il' },
+    { url: '/parks/indiana', label: 'Indiana', value: 'in' },
+    { url: '/parks/iowa', label: 'Iowa', value: 'ia' },
+    { url: '/parks/kansas', label: 'Kansas', value: 'ks' },
+    { url: '/parks/kentucky', label: 'Kentucky', value: 'ky' },
+    { url: '/parks/louisiana', label: 'Louisiana', value: 'la' },
+    { url: '/parks/maine', label: 'Maine', value: 'me' },
+    { url: '/parks/maryland', label: 'Maryland', value: 'md' },
+    { url: '/parks/massachusetts', label: 'Massachusetts', value: 'ma' },
+    { url: '/parks/michigan', label: 'Michigan', value: 'mi' },
+    { url: '/parks/minnesota', label: 'Minnesota', value: 'mn' },
+    { url: '/parks/mississippi',label: 'Mississippi', value: 'ms' },
+    { url: '/parks/missouri', label: 'Missouri', value: 'mo' },
+    { url: '/parks/montana', label: 'Montana', value: 'mt' },
+    { url: '/parks/nebraska', label: 'Nebraska', value: 'ne' },
+    { url: '/parks/nevada', label: 'Nevada', value: 'nv' },
+    { url: '/parks/new-hampshire', label: 'New Hampshire', value: 'nh' },
+    { url: '/parks/new-jersey', label: 'New Jersey', value: 'nj' },
+    { url: '/parks/new-mexico', label: 'New Mexico', value: 'nm' },
+    { url: '/parks/new-york', label: 'New York', value: 'ny'},
+    { url: '/parks/north-carolina', label: 'North Carolina', value: 'nc' },
+    { url: '/parks/north-dakota', label: 'North Dakota', value: 'nd' },
+    { url: '/parks/ohio', label: 'Ohio', value: 'oh' },
+    { url: '/parks/oklahoma', label: 'Oklahoma', value: 'ok' },
+    { url: '/parks/oregon', label: 'Oregon', value: 'or' },
+    { url: '/parks/pennsylvania', label: 'Pennsylvania', value: 'pa' },
+    { url: '/parks/rhode-island', label: 'Rhode Island', value: 'ri' },
+    { url: '/parks/south-carolina', label: 'South Carolina', value: 'sc' },
+    { url: '/parks/south-dakota', label: 'South Dakota', value: 'sd' },
+    { url: '/parks/tennessee', label: 'Tennessee', value: 'tn' },
+    { url: '/parks/texas', label: 'Texas', value: 'tx' },
+    { url: '/parks/utah', label: 'Utah', value: 'ut' },
+    { url: '/parks/vermont', label: 'Vermont', value: 'vt' },
+    { url: '/parks/virginia', label: 'Virginia', value: 'va' },
+    { url: '/parks/washington', label: 'Washington', value: 'wa' },
+    { url: '/parks/west-virginia', label: 'West Virginia', value: 'wv' },
+    { url: '/parks/wisconsin', label: 'Wisconsin', value: 'wi' },
+    { url: '/parks/wyoming', label: 'Wyoming', value: 'wy' }
   ]
 
   const POPULARITY = [
-    { url: '/yell', value: 'yell' },
-    { url: '/moru', value: 'moru' },
-    { url: '/grca', value: 'grca' },
-    { url: '/yose', value: 'yose' },
-    { url: '/glac', value: 'glac' },
-    { url: '/hale', value: 'hale' },
-    { url: '/arch', value: 'arch' },
-    { url: '/caco', value: 'caco' },
-    { url: '/alca', value: 'alca' },
-    { url: '/goga', value: 'goga' }
+    { url: '/yell', label: 'Wyoming', value: 'yell' },
+    { url: '/moru', label: 'South Dakota', value: 'moru' },
+    { url: '/grca', label: 'Arizona', value: 'grca' },
+    { url: '/yose', label: 'California', value: 'yose' },
+    { url: '/glac', label: 'Montana', value: 'glac' },
+    { url: '/hale', label: 'Hawaii', value: 'hale' },
+    { url: '/arch', label: 'Utah', value: 'arch' },
+    { url: '/caco', label: 'California', value: 'caco' },
+    { url: '/alca', label: 'California', value: 'alca' },
+    { url: '/goga', label: 'California', value: 'goga' }
   ]
 
-  const urlLocation = useLocation();
+  const urlLocation = useLocation()
 
-  stateObj = STATES.map( it => {
+  stateObj = STATES.map( ( it ) => {
     if(urlLocation.pathname === it.url) {
-      return setStateObj({
+      setStateObj({
         stateUrl: it.url,
+        stateLabel: it.label,
         stateValue: it.value
       })
     }
   })
 
-  popularityObj = POPULARITY.map( i => {
-    if(urlLocation.pathname === i.url) {
-      return setPopularityObj({
+  popularityObj = POPULARITY.map( ( i ) => {
+    if( urlLocation.pathname === i.url ) {
+      setPopularityObj({
         popularityUrl: i.url,
+        popularityLabel: i.label,
         popularityValue: i.value
       })
     }
@@ -124,10 +129,10 @@ export const PagesArea = (props) => {
             <NPAPI />
           </Route>
           <Route path={ stateObj.stateUrl }>
-            <ParksAPIPage stateAPIValue={ stateObj.stateValue } />
+            <ParksPerState stateObj={ stateObj } />
           </Route>
           <Route path={ popularityObj.popularityUrl }>
-            <ParksAPIPage popularityAPIValue={ popularityObj.popularityValue } />
+            <ParkPerPopularity popularityObj={ popularityObj } />
           </Route>
           <Route path="/contact">
             <ContactPage />

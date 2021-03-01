@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PopularityImgPagination = () => {
+const PopImgPagination = () => {
   return (
     
     <>
@@ -11,4 +11,4 @@ const PopularityImgPagination = () => {
   )
 }
 
-export default PopularityImgPagination
+export default PopImgPagination
