@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import ImagesPerPopularity from './ImagesPerPopularity'
+import ParkPerPopularityPagination from '../UI/ParkPerPopularityPagination'
 import PopularityImgPagination from './PopularityImgPagination'
 import { aboutHeaderStyle, aboutHeaderTitleStyle, aboutRuleStyle, aboutTextStyle } from '../../Styles/Pages/AboutPage.Styles'
 
@@ -33,6 +34,7 @@ const ParkPerPopularity = ( { popularityAPI, loading } ) => {
               <p style={ aboutTextStyle } className="text-white">
                 {  }
               </p>
+              <ParkPerPopularityPagination />
             </Col>
           </Row>
         </Container>

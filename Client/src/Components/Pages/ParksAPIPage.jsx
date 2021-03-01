@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import ParksPerState from '../UI/ParksPerState'
 import ParkPerPopularity from '../UI/ParkPerPopularity'
-import ParksPerStatePagination from '../UI/ParksPerStatePagination'
-import ParkPerPopularityPagination from '../UI/ParkPerPopularityPagination'
 
 export const ParksAPIPage = ( props ) => {
 
@@ -78,7 +76,7 @@ export const ParksAPIPage = ( props ) => {
         } )
           
         }
-        <ParksPerStatePagination parksPerPage={ parksPerPage } totalParks={ stateAPI.length } parksPaginate={ parksPaginate } />
+        
       </>
     )
   }

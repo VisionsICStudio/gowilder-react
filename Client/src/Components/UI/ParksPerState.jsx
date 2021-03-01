@@ -1,8 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import ImagesPerState from './ImagesPerState'
+import { Figure } from 'react-bootstrap'
+import ParksPerStatePagination from './UI/ParksPerStatePagination'
 import StateImgPagination from './StateImgPagination'
-import { aboutHeaderStyle, aboutHeaderTitleStyle, aboutRuleStyle, aboutTextStyle } from '../../Styles/Pages/AboutPage.Styles'
+import { aboutHeaderStyle, aboutHeaderTitleStyle, aboutRuleStyle, aboutImgStyle, aboutCaptionStyle, aboutTextStyle } from '../../Styles/Pages/AboutPage.Styles'
 
 
 export const ParksPerState = ({ stateAPI, loading }) => {
@@ -13,7 +14,7 @@ export const ParksPerState = ({ stateAPI, loading }) => {
 
   return (
     <>
-      { stateAPI.map(state => (
+      { stateAPI.map( ( { stateImages }, state ) => (
         <Container>
           <Row style={ aboutHeaderStyle } xl="12">
             <h2 style={ aboutHeaderTitleStyle } class="text-white text-uppercase text-left mt-3"> { state.fullName } </h2>
@@ -21,7 +22,15 @@ export const ParksPerState = ({ stateAPI, loading }) => {
           </Row>
           <Row xl="12">
             <Col>
-              <ImagesPerState />
+              { stateImages.map( ( { url }, img ) => {
+                <Figure className="col-12 text-success">
+                  <Figure.Image key={ img } src={ url } style={ aboutImgStyle } alt="man in big tree"/>
+                  <Figure.Caption style={ aboutCaptionStyle } className="mb-3">
+                    This is an image shot from our sponsored location.
+                  </Figure.Caption>
+                </Figure>
+                })
+              }
               <StateImgPagination />
             </Col>
           </Row>
@@ -35,6 +44,7 @@ export const ParksPerState = ({ stateAPI, loading }) => {
               <p style={ aboutTextStyle } className="text-white">
                 {  }
               </p>
+              <ParksPerStatePagination parksPerPage={ parksPerPage } totalParks={ stateAPI.length } parksPaginate={ parksPaginate } />
             </Col>
           </Row>
         </Container>
